@@ -2,6 +2,7 @@ package games.trident.skills.listeners;
 
 import games.trident.skills.SkillsPlugin;
 import games.trident.skills.conf.ConfMining;
+import games.trident.skills.events.SkillLevelupEvent;
 import games.trident.skills.profile.ProfileSkills;
 import games.trident.skills.type.mining.MiningLevel;
 import games.trident.skills.utilities.Level;
@@ -45,6 +46,9 @@ public class MiningListeners implements Listener {
             };
 
             confMining.getConfigurableLevelUp().send(player, placeholders);
+
+            SkillLevelupEvent skillLevelupEvent = new SkillLevelupEvent(player, "mining", entry.getLevel());
+            Bukkit.getPluginManager().callEvent(skillLevelupEvent);
         }
     }
 
