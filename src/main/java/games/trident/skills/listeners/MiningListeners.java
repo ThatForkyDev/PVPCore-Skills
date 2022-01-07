@@ -13,7 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
 
 public class MiningListeners implements Listener {
     private SkillsPlugin plugin;
@@ -36,10 +35,15 @@ public class MiningListeners implements Listener {
         Level entry = profileSkills.getLevableEntry("mining", new MiningLevel(1, 0));
         ConfMining confMining = plugin.getConfManager().getConfMining();
 
+        System.out.println("Contains: " + (confMining.getExperience().containsKey(material)));
+
         if (!confMining.getExperience().containsKey(material))
             return;
 
-        if (entry.addExp(confMining.getExperience().get(material).getExperience())) {
+        double experience = confMining.getExperience().get(material).getExperience();
+        player.sendMessage(experience + " exp");
+
+        if (entry.addExp(experience)) {
             Placeholder[] placeholders = {
                     new Placeholder("%player%", player.getName()),
                     new Placeholder("%level%", Integer.toString(entry.getLevel()))
@@ -49,14 +53,8 @@ public class MiningListeners implements Listener {
 
             SkillLevelupEvent skillLevelupEvent = new SkillLevelupEvent(player, "mining", entry.getLevel());
             Bukkit.getPluginManager().callEvent(skillLevelupEvent);
-        }
-    }
-
-    @EventHandler
-    public void onPlace(BlockPlaceEvent event) {
-        for (int i = 1; i < 100; i++) {
-            MiningLevel level = new MiningLevel(i, 0);
-            event.getPlayer().sendMessage(i + ": " + level.getRequiredExp());
+        } else {
+            player.sendMessage(entry.getExp() + " / " + entry.getRequiredExp());
         }
     }
 }

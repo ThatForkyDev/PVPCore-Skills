@@ -25,8 +25,8 @@ public class MiningLevel implements Level {
 
     @Override
     public double getExp() {
-        if (this.experience < getPreviousRequiredExp())
-            this.experience = getPreviousRequiredExp();
+//        if (this.experience < getPreviousRequiredExp())
+//            this.experience = getPreviousRequiredExp();
 
         return this.experience;
     }

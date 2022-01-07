@@ -1,10 +1,15 @@
 package games.trident.skills.conf.configurable;
 
 import com.google.common.collect.Lists;
+import games.trident.skills.utilities.ItemBuilder;
+import games.trident.skills.utilities.Placeholder;
+import games.trident.skills.utilities.PlaceholderUtil;
 import lombok.Getter;
+import net.minecraft.server.v1_8_R3.ItemBucket;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.List;
 
@@ -22,5 +27,12 @@ public class ConfigurableItem {
         for (String line : section.getStringList("lore")) {
             lore.add(ChatColor.translateAlternateColorCodes('&', line));
         }
+    }
+
+    public ItemStack build(Placeholder[] placeholders) {
+        return new ItemBuilder(material)
+                .setName(PlaceholderUtil.replacePlaceholders(name, placeholders))
+                .setLoreArray(PlaceholderUtil.replacePlaceholders(lore, placeholders), true)
+                .build();
     }
 }

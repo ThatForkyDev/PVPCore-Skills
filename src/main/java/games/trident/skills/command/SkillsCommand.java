@@ -31,7 +31,7 @@ public class SkillsCommand extends BaseCommand<CommandSender> {
         if (commandSender instanceof Player) {
             Player player = (Player) commandSender;
 
-            MenuAPI.openMenu(player, new SkillsMenu());
+            MenuAPI.openMenu(player, new SkillsMenu(plugin, player));
         }
     }
 }

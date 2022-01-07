@@ -17,7 +17,7 @@ public class ConfMining extends ConfSkill {
 
         FileConfiguration config = plugin.getConfig();
         for (String key : config.getConfigurationSection("mining").getConfigurationSection("experience").getKeys(false)) {
-            experience.put(Material.valueOf(key.toUpperCase()), new ConfigurableExperience(config.getFloat("mining.experience." + key + ".experience")));
+            experience.put(Material.valueOf(key.toUpperCase()), new ConfigurableExperience(config.getDouble("mining.experience." + key + ".experience")));
         }
     }
 }

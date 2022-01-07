@@ -5,5 +5,5 @@ import lombok.Getter;
 
 @AllArgsConstructor @Getter
 public class ConfigurableExperience {
-    private float experience;
+    private double experience;
 }
