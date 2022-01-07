@@ -1,7 +1,6 @@
 package games.trident.skills.profile;
 
 import com.google.common.collect.Maps;
-import games.trident.skills.profile.entry.LevelableEntry;
 import games.trident.skills.utilities.Level;
 
 import java.util.HashMap;
@@ -9,11 +8,11 @@ import java.util.UUID;
 
 public class ProfileSkills {
     private UUID uuid;
-    private HashMap<String, LevelableEntry> levelableEntryHashMap = Maps.newHashMap();
+    private HashMap<String, Level> levelableEntryHashMap = Maps.newHashMap();
 
-    public LevelableEntry getLevableEntry(String key, Class<? extends Level> levelType) {
+    public Level getLevableEntry(String key, Level level) {
         if (!levelableEntryHashMap.containsKey(key))
-            levelableEntryHashMap.put(key, new LevelableEntry(1, 0, levelType));
+            levelableEntryHashMap.put(key, level);
 
         return levelableEntryHashMap.get(key);
     }
