@@ -1,0 +1,6 @@
+name: Skills
+version: 1.0
+main: games.trident.skills.SkillsPlugin
+authors: [TridentGames]
+depend:
+  - AdvancedSpawners

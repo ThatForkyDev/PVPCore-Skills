@@ -1,0 +1,90 @@
+mining:
+  name: 'Mining'
+  item:
+    material: 'DIAMOND_PICKAXE'
+    slot: 5
+    name: '&a&lMining'
+    lore:
+      - 'This will be some type of'
+      - 'lore.'
+  finalLevelPool: 15
+  finalLevelInterval: 5
+  finalLevelRewards:
+    - 'reward_1'
+  levels:
+    '1':
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
+    '10':
+      - 'reward_1'
+      - 'reward_2'
+  rewards:
+    'reward_1':
+      chance: 5
+      command: 'give %player% dirt 1'
+    'reward_2':
+      chance: 5
+      command: 'give %player% dirt 1'
+  experience:
+    'DIAMOND_ORE':
+      experience: 10
+    'DIAMOND_BLOCK':
+      experience: 100
+
+slayer:
+  name: 'Slayer'
+  finalLevelPool: 15
+  finalLevelInterval: 5
+  finalLevelRewards:
+    - 'reward_1'
+  levels:
+    '1':
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
+    '10':
+      - 'reward_1'
+      - 'reward_2'
+  rewards:
+    'reward_1':
+      chance: 5
+      command: 'give %player% dirt 1'
+
+fishing:
+  name: 'Fishing'
+  finalLevelPool: 15
+  finalLevelInterval: 5
+  finalLevelRewards:
+    - 'reward_1'
+  levels:
+    '1':
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
+    '10':
+      - 'reward_1'
+      - 'reward_2'
+  rewards:
+    'reward_1':
+      chance: 5
+      command: 'give %player% dirt 1'
+
+farming:
+  name: 'Farming'
+  finalLevelPool: 15
+  finalLevelInterval: 5
+  finalLevelRewards:
+    - 'reward_1'
+  levels:
+    '1':
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
+    '10':
+      - 'reward_1'
+      - 'reward_2'
+  rewards:
+    'reward_1':
+      chance: 5
+      command: 'give %player% dirt 1'
