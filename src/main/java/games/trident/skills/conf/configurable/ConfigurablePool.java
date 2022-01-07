@@ -1,6 +1,5 @@
 package games.trident.skills.conf.configurable;
 
-import com.google.common.collect.Lists;
 import lombok.Getter;
 import org.bukkit.configuration.ConfigurationSection;
 
