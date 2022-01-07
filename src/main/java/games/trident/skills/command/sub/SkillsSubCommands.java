@@ -72,7 +72,65 @@ public class SkillsSubCommands {
 
             sender.sendMessage(ChatColor.GREEN + "You have set " + target.getName() + " to level " + level);
         } else {
-            sender.sendMessage(ChatColor.RED + "Invalid Usage: /skills reset <player>");
+            sender.sendMessage(ChatColor.RED + "Invalid Usage: /skills setlevel <player> <mining|farming|fishing|slaying> <level>");
+        }
+    }
+
+    @ForeignCommand(value = "addexp", usage = "addexp <player> <mining|farming|fishing|slaying> <exp>", description = "Adds exp to a players level.", permission = "command.skills.addexp")
+    public void addexp(CommandArgument argument) {
+        CommandSender sender = argument.getSender();
+        String[] args = argument.getArgs();
+
+        if (args.length != 3) {
+            Player target = Bukkit.getPlayerExact(args[1]);
+
+            if (Objects.isNull(target) || !target.isOnline()) {
+                sender.sendMessage(ChatColor.RED + "That player cannot be found.");
+                return;
+            }
+
+            String skill = args[2].toLowerCase();
+            if (!types.containsKey(skill)) {
+                sender.sendMessage(ChatColor.RED + "That skill cannot be found.");
+                return;
+            }
+
+            double exp = Double.valueOf(args[3]);
+
+            plugin.getProfileManager().getProfile(target.getUniqueId())
+                    .getLevableEntry(skill, types.get(skill))
+                    .addExp(exp);
+
+            sender.sendMessage(ChatColor.GREEN + "You have gave " + target.getName() + " " + exp + " exp.");
+        } else {
+            sender.sendMessage(ChatColor.RED + "Invalid Usage: /skills addexp <player> <mining|farming|fishing|slaying> <exp>");
+        }
+    }
+
+    @ForeignCommand(value = "givereward", usage = "givereward <player> <reward>", description = "Gives a reward to a player.", permission = "command.skills.givereward")
+    public void givereward(CommandArgument argument) {
+        CommandSender sender = argument.getSender();
+        String[] args = argument.getArgs();
+
+        if (args.length != 2) {
+            Player target = Bukkit.getPlayerExact(args[1]);
+
+            if (Objects.isNull(target) || !target.isOnline()) {
+                sender.sendMessage(ChatColor.RED + "That player cannot be found.");
+                return;
+            }
+
+            String reward = args[2];
+
+            if (!plugin.getConfManager().getConfRewards().getRewards().containsKey(reward)) {
+                sender.sendMessage(ChatColor.RED + "That reward doesn't exist.");
+                return;
+            }
+
+            plugin.getConfManager().getConfRewards().getRewards().get(reward).give(target);
+            sender.sendMessage(ChatColor.GREEN + "You have gave " + target.getName() + " a reward.");
+        } else {
+            sender.sendMessage(ChatColor.RED + "Invalid Usage: /skills addexp <player> <mining|farming|fishing|slaying> <exp>");
         }
     }
 
