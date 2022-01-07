@@ -4,28 +4,48 @@ mining:
     material: 'DIAMOND_PICKAXE'
     slot: 5
     name: '&a&lMining'
+    amount: 1
     lore:
       - 'This will be some type of'
       - 'lore.'
-  finalLevelPool: 15
-  finalLevelInterval: 5
-  finalLevelRewards:
-    - 'reward_1'
+  levelup:
+    message:
+      enabled: true
+      message: "Level up."
+    title:
+      enabled: true
+      title: '&7&lLevel Up'
+      subtitle: '&eCongrats'
+      fade: 0
+      stay: 3
+    sound:
+      enabled: true
+      name: "EXPERIENCE_LEVEL_UP"
+      pitch: 1.0
+      volume: 1.0
+  finalPool:
+    level: 15
+    interval: 5
+    rewards:
+      - 'reward_1'
   levels:
     '1':
       rewards:
         - 'reward_1'
         - 'reward_2'
     '10':
-      - 'reward_1'
-      - 'reward_2'
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
   rewards:
     'reward_1':
+      name: '&eDirt Reward'
       chance: 5
       command: 'give %player% dirt 1'
     'reward_2':
+      name: '&eGrass Reward'
       chance: 5
-      command: 'give %player% dirt 1'
+      command: 'give %player% grass 1'
   experience:
     'DIAMOND_ORE':
       experience: 10
@@ -34,57 +54,162 @@ mining:
 
 slayer:
   name: 'Slayer'
-  finalLevelPool: 15
-  finalLevelInterval: 5
-  finalLevelRewards:
-    - 'reward_1'
+  item:
+    material: 'DIAMOND_SWORD'
+    slot: 5
+    name: '&a&lSlayer'
+    amount: 1
+    lore:
+      - 'This will be some type of'
+      - 'lore.'
+  levelup:
+    message:
+      enabled: true
+      message: "Level up."
+    title:
+      enabled: true
+      title: '&7&lLevel Up'
+      subtitle: '&eCongrats'
+      fade: 0
+      stay: 3
+    sound:
+      enabled: true
+      name: "EXPERIENCE_LEVEL_UP"
+      pitch: 1.0
+      volume: 1.0
+  finalPool:
+    level: 15
+    interval: 5
+    rewards:
+      - 'reward_1'
   levels:
     '1':
       rewards:
         - 'reward_1'
         - 'reward_2'
     '10':
-      - 'reward_1'
-      - 'reward_2'
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
   rewards:
     'reward_1':
+      name: '&eDirt Reward'
       chance: 5
       command: 'give %player% dirt 1'
+    'reward_2':
+      name: '&eGrass Reward'
+      chance: 5
+      command: 'give %player% grass 1'
+  experience:
+    'DIAMOND_ORE':
+      experience: 10
+    'DIAMOND_BLOCK':
+      experience: 100
 
 fishing:
   name: 'Fishing'
-  finalLevelPool: 15
-  finalLevelInterval: 5
-  finalLevelRewards:
-    - 'reward_1'
+  item:
+    material: 'FISHING_ROD'
+    slot: 5
+    name: '&a&lFishing'
+    amount: 1
+    lore:
+      - 'This will be some type of'
+      - 'lore.'
+  levelup:
+    message:
+      enabled: true
+      message: "Level up."
+    title:
+      enabled: true
+      title: '&7&lLevel Up'
+      subtitle: '&eCongrats'
+      fade: 0
+      stay: 3
+    sound:
+      enabled: true
+      name: "EXPERIENCE_LEVEL_UP"
+      pitch: 1.0
+      volume: 1.0
+  finalPool:
+    level: 15
+    interval: 5
+    rewards:
+      - 'reward_1'
   levels:
     '1':
       rewards:
         - 'reward_1'
         - 'reward_2'
     '10':
-      - 'reward_1'
-      - 'reward_2'
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
   rewards:
     'reward_1':
+      name: '&eDirt Reward'
       chance: 5
       command: 'give %player% dirt 1'
+    'reward_2':
+      name: '&eGrass Reward'
+      chance: 5
+      command: 'give %player% grass 1'
+  experience:
+    'DIAMOND_ORE':
+      experience: 10
+    'DIAMOND_BLOCK':
+      experience: 100
 
 farming:
   name: 'Farming'
-  finalLevelPool: 15
-  finalLevelInterval: 5
-  finalLevelRewards:
-    - 'reward_1'
+  item:
+    material: 'DIAMOND_PICKAXE'
+    slot: 5
+    name: '&a&lFarming'
+    amount: 1
+    lore:
+      - 'This will be some type of'
+      - 'lore.'
+  levelup:
+    message:
+      enabled: true
+      message: "Level up."
+    title:
+      enabled: true
+      title: '&7&lLevel Up'
+      subtitle: '&eCongrats'
+      fade: 0
+      stay: 3
+    sound:
+      enabled: true
+      name: "EXPERIENCE_LEVEL_UP"
+      pitch: 1.0
+      volume: 1.0
+  finalPool:
+    level: 15
+    interval: 5
+    rewards:
+      - 'reward_1'
   levels:
     '1':
       rewards:
         - 'reward_1'
         - 'reward_2'
     '10':
-      - 'reward_1'
-      - 'reward_2'
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
   rewards:
     'reward_1':
+      name: '&eDirt Reward'
       chance: 5
       command: 'give %player% dirt 1'
+    'reward_2':
+      name: '&eGrass Reward'
+      chance: 5
+      command: 'give %player% grass 1'
+  experience:
+    'DIAMOND_ORE':
+      experience: 10
+    'DIAMOND_BLOCK':
+      experience: 100
