@@ -44,6 +44,16 @@ public class MiningLevel implements Level {
     }
 
     @Override
+    public void addLevels(int levels) {
+        this.level += levels;
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level = level;
+        this.experience = getPreviousRequiredExp();
+    }
+    @Override
     public double getRequiredExp() {
         return Math.round(1500 * ((getLevel() * getPreviousLevel()) + 5f / 1500));
     }

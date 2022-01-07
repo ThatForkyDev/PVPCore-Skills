@@ -11,6 +11,10 @@ public interface Level {
 
     boolean addExp(double exp);
 
+    void addLevels(int levels);
+
+    void setLevel(int level);
+
     double getRequiredExp();
 
     double getPreviousRequiredExp();

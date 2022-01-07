@@ -44,6 +44,17 @@ public class FarmingLevel implements Level {
     }
 
     @Override
+    public void addLevels(int levels) {
+        this.level += levels;
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level = level;
+        this.experience = getPreviousRequiredExp();
+    }
+
+    @Override
     public double getRequiredExp() {
         return Math.round(7000 * ((getLevel() * getPreviousLevel()) + 0f / 7000));
     }

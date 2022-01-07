@@ -43,7 +43,7 @@ mining:
     'DIAMOND_BLOCK':
       experience: 100
 
-slayer:
+slaying:
   name: 'Slayer'
   item:
     material: 'DIAMOND_SWORD'
