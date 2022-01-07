@@ -37,15 +37,6 @@ mining:
       rewards:
         - 'reward_1'
         - 'reward_2'
-  rewards:
-    'reward_1':
-      name: '&eDirt Reward'
-      chance: 5
-      command: 'give %player% dirt 1'
-    'reward_2':
-      name: '&eGrass Reward'
-      chance: 5
-      command: 'give %player% grass 1'
   experience:
     'DIAMOND_ORE':
       experience: 10
@@ -91,15 +82,6 @@ slayer:
       rewards:
         - 'reward_1'
         - 'reward_2'
-  rewards:
-    'reward_1':
-      name: '&eDirt Reward'
-      chance: 5
-      command: 'give %player% dirt 1'
-    'reward_2':
-      name: '&eGrass Reward'
-      chance: 5
-      command: 'give %player% grass 1'
   experience:
     'DIAMOND_ORE':
       experience: 10
@@ -145,15 +127,6 @@ fishing:
       rewards:
         - 'reward_1'
         - 'reward_2'
-  rewards:
-    'reward_1':
-      name: '&eDirt Reward'
-      chance: 5
-      command: 'give %player% dirt 1'
-    'reward_2':
-      name: '&eGrass Reward'
-      chance: 5
-      command: 'give %player% grass 1'
   experience:
     'DIAMOND_ORE':
       experience: 10
@@ -199,17 +172,18 @@ farming:
       rewards:
         - 'reward_1'
         - 'reward_2'
-  rewards:
-    'reward_1':
-      name: '&eDirt Reward'
-      chance: 5
-      command: 'give %player% dirt 1'
-    'reward_2':
-      name: '&eGrass Reward'
-      chance: 5
-      command: 'give %player% grass 1'
   experience:
     'DIAMOND_ORE':
       experience: 10
     'DIAMOND_BLOCK':
       experience: 100
+
+rewards:
+  'reward_1':
+    name: '&eDirt Reward'
+    chance: 5
+    command: 'give %player% dirt 1'
+  'reward_2':
+    name: '&eGrass Reward'
+    chance: 5
+    command: 'give %player% grass 1'
