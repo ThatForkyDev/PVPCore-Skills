@@ -1,5 +1,7 @@
 package games.trident.skills.conf.configurable.levelup;
 
+import games.trident.skills.utilities.Placeholder;
+import games.trident.skills.utilities.PlaceholderUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -13,8 +15,8 @@ public class ConfigurableMessage {
         this.message = section.getString("message");
     }
 
-    public void send(Player player) {
+    public void send(Player player, Placeholder[] placeholders) {
         if (enabled)
-            player.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+            player.sendMessage(ChatColor.translateAlternateColorCodes('&', PlaceholderUtil.replacePlaceholders(message, placeholders)));
     }
 }

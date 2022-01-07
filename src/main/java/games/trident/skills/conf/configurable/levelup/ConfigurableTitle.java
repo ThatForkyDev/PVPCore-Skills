@@ -1,5 +1,7 @@
 package games.trident.skills.conf.configurable.levelup;
 
+import games.trident.skills.utilities.Placeholder;
+import games.trident.skills.utilities.PlaceholderUtil;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
@@ -22,8 +24,8 @@ public class ConfigurableTitle {
         this.stay = section.getInt("stay");
     }
 
-    public void send(Player player) {
+    public void send(Player player, Placeholder[] placeholders) {
         if (enabled)
-            player.sendTitle(new Title(ChatColor.translateAlternateColorCodes('&', title), ChatColor.translateAlternateColorCodes('&', subtitle), fade, stay, fade));
+            player.sendTitle(new Title(ChatColor.translateAlternateColorCodes('&', PlaceholderUtil.replacePlaceholders(title, placeholders)), ChatColor.translateAlternateColorCodes('&', PlaceholderUtil.replacePlaceholders(subtitle, placeholders)), fade, stay, fade));
     }
 }

@@ -3,6 +3,7 @@ package games.trident.skills.conf.configurable;
 import games.trident.skills.conf.configurable.levelup.ConfigurableMessage;
 import games.trident.skills.conf.configurable.levelup.ConfigurableSound;
 import games.trident.skills.conf.configurable.levelup.ConfigurableTitle;
+import games.trident.skills.utilities.Placeholder;
 import lombok.Getter;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -19,9 +20,9 @@ public class ConfigurableLevelUp {
         this.sound = new ConfigurableSound(section.getConfigurationSection("sound"));
     }
 
-    public void send(Player player) {
-        message.send(player);
-        title.send(player);
+    public void send(Player player, Placeholder[] placeholders) {
+        message.send(player, placeholders);
+        title.send(player, placeholders);
         sound.send(player);
     }
 }

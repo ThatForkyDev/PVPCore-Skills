@@ -5,6 +5,7 @@ import games.trident.skills.conf.ConfMining;
 import games.trident.skills.profile.ProfileSkills;
 import games.trident.skills.type.mining.MiningLevel;
 import games.trident.skills.utilities.Level;
+import games.trident.skills.utilities.Placeholder;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -33,13 +34,17 @@ public class MiningListeners implements Listener {
         ProfileSkills profileSkills = plugin.getProfileManager().getProfile(player.getUniqueId());
         Level entry = profileSkills.getLevableEntry("mining", new MiningLevel(1, 0));
         ConfMining confMining = plugin.getConfManager().getConfMining();
+
         if (!confMining.getExperience().containsKey(material))
             return;
 
         if (entry.addExp(confMining.getExperience().get(material).getExperience())) {
-            confMining.getConfigurableLevelUp().send(player);
-        } else {
-            player.sendMessage("Not levelved up yet - " + entry.getExp() + "/" + entry.getRequiredExp());
+            Placeholder[] placeholders = {
+                    new Placeholder("%player%", player.getName()),
+                    new Placeholder("%level%", Integer.toString(entry.getLevel()))
+            };
+
+            confMining.getConfigurableLevelUp().send(player, placeholders);
         }
     }
 
