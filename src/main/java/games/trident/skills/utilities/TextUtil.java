@@ -3,7 +3,7 @@ package games.trident.skills.utilities;
 import org.bukkit.ChatColor;
 
 public class TextUtil {
-    public static String getBar(String done, String todo, float start, float finish, String symbol, int size) {
+    public static String getBar(String done, String todo, double start, double finish, String symbol, int size) {
         StringBuilder builder = new StringBuilder();
         for(int i = 0; i < size; i++) {
             if(((float)i / (float)size) < (start / finish)) {

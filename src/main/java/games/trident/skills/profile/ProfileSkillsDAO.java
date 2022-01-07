@@ -55,7 +55,7 @@ public class ProfileSkillsDAO {
     }
 
     @Query(set = "data", from = "account_skills", where = "uuid", type = Query.Type.UPDATE)
-    public static boolean setBalance(Connection connection, UUID uuid, ProfileSkills profile) {
+    public static boolean setData(Connection connection, UUID uuid, ProfileSkills profile) {
         try (PreparedStatement statement = connection.prepareStatement("UPDATE `account_skills` SET `data`=? WHERE `uuid`=UNHEX(?);")) {
             statement.setString(1, gson.toJson(profile));
             statement.setString(2, UUIDUtil.strip(uuid));

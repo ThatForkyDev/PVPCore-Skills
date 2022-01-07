@@ -20,8 +20,8 @@ public class ConfigurableTitle {
         this.enabled = section.getBoolean("enabled");
         this.title = section.getString("title");
         this.subtitle = section.getString("subtitle");
-        this.fade = section.getInt("fade") * 1000;
-        this.stay = section.getInt("stay") * 1000;
+        this.fade = section.getInt("fade") * 20;
+        this.stay = section.getInt("stay") * 20;
     }
 
     public void send(Player player, Placeholder[] placeholders) {

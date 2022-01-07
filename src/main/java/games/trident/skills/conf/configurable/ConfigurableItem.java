@@ -17,12 +17,16 @@ import java.util.List;
 public class ConfigurableItem {
     private Material material;
     private int slot;
+    private short durability = 0;
     private String name;
     private List<String> lore = Lists.newArrayList();
 
     public ConfigurableItem(ConfigurationSection section) {
         this.material = Material.valueOf(section.getString("material").toUpperCase());
         this.slot = section.getInt("slot");
+        if (section.contains("durability")) {
+            this.durability = (short) section.getInt("durability");
+        }
         this.name = ChatColor.translateAlternateColorCodes('&', section.getString("name"));
         for (String line : section.getStringList("lore")) {
             lore.add(ChatColor.translateAlternateColorCodes('&', line));
@@ -33,6 +37,7 @@ public class ConfigurableItem {
         return new ItemBuilder(material)
                 .setName(PlaceholderUtil.replacePlaceholders(name, placeholders))
                 .setLoreArray(PlaceholderUtil.replacePlaceholders(lore, placeholders), true)
+                .setDurability(durability)
                 .build();
     }
 }

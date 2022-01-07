@@ -7,16 +7,100 @@ sql:
   minIdle: 30
   maxConnections: 100
 
+menu:
+  title: "Skills"
+  rows: 3
+  spacerItem:
+    material: 'STAINED_GLASS_PANE'
+    slot: -1
+    durability: 11
+    name: ' '
+    amount: 1
+    lore: []
+
 mining:
   name: 'Mining'
   item:
     material: 'DIAMOND_PICKAXE'
-    slot: 5
+    slot: 10
     name: '&a&lMining'
     amount: 1
     lore:
-      - 'This will be some type of'
-      - 'lore.'
+      - '&7Your Name: &f%player%'
+      - '&7Your Level: &f%level%'
+      - '&7Next Level: &f%next_level%'
+      - '&7Required: &f%exp%/%exp_required%'
+      - ''
+      - '%progress_bar%'
+  levelup:
+    message:
+      enabled: true
+      message: "Level up."
+    title:
+      enabled: true
+      title: '&7&lLevel Up'
+      subtitle: '&eCongrats'
+      fade: 0
+      stay: 3
+    sound:
+      enabled: true
+      name: "LEVEL_UP"
+      pitch: 1.0
+      volume: 1.0
+  finalPool:
+    level: 15
+    interval: 5
+    rewards:
+      - 'reward_1'
+  chances:
+    'BLAST_RADIUS':
+      defaultChance: 1
+      incrementPerLevel: 0.05
+      maxChance: 70
+  blastRadius:
+    whitelist:
+      - 'DIAMOND_ORE'
+    x: 2
+    y: 2
+    z: 2
+  enchantments:
+    efficiency:
+      levelInterval: 2
+      enchantment: 'DIG_SPEED'
+      levels: 1
+    fortune:
+      levelInterval: 5
+      enchantment: 'BLOCKS_LOOT_BONUS'
+      levels: 1
+  levels:
+    '1':
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
+    '10':
+      rewards:
+        - 'reward_1'
+        - 'reward_2'
+  experience:
+    'DIAMOND_ORE':
+      experience: 10
+    'DIAMOND_BLOCK':
+      experience: 100
+
+slaying:
+  name: 'Slayer'
+  item:
+    material: 'DIAMOND_SWORD'
+    slot: 12
+    name: '&a&lSlayer'
+    amount: 1
+    lore:
+      - '&7Your Name: &f%player%'
+      - '&7Your Level: &f%level%'
+      - '&7Next Level: &f%next_level%'
+      - '&7Required: &f%exp%/%exp_required%'
+      - ''
+      - '%progress_bar%'
   levelup:
     message:
       enabled: true
@@ -52,61 +136,20 @@ mining:
     'DIAMOND_BLOCK':
       experience: 100
 
-slaying:
-  name: 'Slayer'
-  item:
-    material: 'DIAMOND_SWORD'
-    slot: 5
-    name: '&a&lSlayer'
-    amount: 1
-    lore:
-      - 'This will be some type of'
-      - 'lore.'
-  levelup:
-    message:
-      enabled: true
-      message: "Level up."
-    title:
-      enabled: true
-      title: '&7&lLevel Up'
-      subtitle: '&eCongrats'
-      fade: 0
-      stay: 3
-    sound:
-      enabled: true
-      name: "EXPERIENCE_LEVEL_UP"
-      pitch: 1.0
-      volume: 1.0
-  finalPool:
-    level: 15
-    interval: 5
-    rewards:
-      - 'reward_1'
-  levels:
-    '1':
-      rewards:
-        - 'reward_1'
-        - 'reward_2'
-    '10':
-      rewards:
-        - 'reward_1'
-        - 'reward_2'
-  experience:
-    'DIAMOND_ORE':
-      experience: 10
-    'DIAMOND_BLOCK':
-      experience: 100
-
 fishing:
   name: 'Fishing'
   item:
     material: 'FISHING_ROD'
-    slot: 5
+    slot: 14
     name: '&a&lFishing'
     amount: 1
     lore:
-      - 'This will be some type of'
-      - 'lore.'
+      - '&7Your Name: &f%player%'
+      - '&7Your Level: &f%level%'
+      - '&7Next Level: &f%next_level%'
+      - '&7Required: &f%exp%/%exp_required%'
+      - ''
+      - '%progress_bar%'
   levelup:
     message:
       enabled: true
@@ -119,7 +162,7 @@ fishing:
       stay: 3
     sound:
       enabled: true
-      name: "EXPERIENCE_LEVEL_UP"
+      name: "LEVEL_UP"
       pitch: 1.0
       volume: 1.0
   finalPool:
@@ -146,12 +189,16 @@ farming:
   name: 'Farming'
   item:
     material: 'DIAMOND_PICKAXE'
-    slot: 5
+    slot: 16
     name: '&a&lFarming'
     amount: 1
     lore:
-      - 'This will be some type of'
-      - 'lore.'
+      - '&7Your Name: &f%player%'
+      - '&7Your Level: &f%level%'
+      - '&7Next Level: &f%next_level%'
+      - '&7Required: &f%exp%/%exp_required%'
+      - ''
+      - '%progress_bar%'
   levelup:
     message:
       enabled: true
@@ -164,7 +211,7 @@ farming:
       stay: 3
     sound:
       enabled: true
-      name: "EXPERIENCE_LEVEL_UP"
+      name: "LEVEL_UP"
       pitch: 1.0
       volume: 1.0
   finalPool:

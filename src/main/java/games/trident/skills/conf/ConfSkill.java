@@ -4,11 +4,8 @@ import com.google.common.collect.Maps;
 import games.trident.skills.conf.configurable.ConfigurableItem;
 import games.trident.skills.conf.configurable.ConfigurableLevelUp;
 import games.trident.skills.conf.configurable.ConfigurablePool;
-import games.trident.skills.utilities.ItemBuilder;
-import games.trident.skills.utilities.Placeholder;
 import lombok.Getter;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.inventory.ItemStack;
 
 import java.util.HashMap;
 import java.util.List;

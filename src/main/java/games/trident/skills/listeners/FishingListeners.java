@@ -22,7 +22,7 @@ public class FishingListeners implements Listener {
 
     @EventHandler
     public void onFish(PlayerFishEvent event) {
-        setBiteTime(event.getHook(), 4);
+//        setBiteTime(event.getHook(), 4);
     }
 
     private void setBiteTime(FishHook hook, int time) {

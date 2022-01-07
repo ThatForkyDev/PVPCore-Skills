@@ -15,15 +15,21 @@ public class ProfileManager {
 
     public ProfileSkills getProfile(UUID uuid) {
         if (!profiles.containsKey(uuid)) {
-            profiles.put(uuid, load(uuid));
+            load(uuid, true);
         }
 
         return profiles.get(uuid);
     }
 
-    public ProfileSkills load(UUID uuid) {
+    public ProfileSkills load(UUID uuid, boolean add) {
         try (Connection connection = BaseDatabase.getInstance().getConnection()) {
-            return ProfileSkillsDAO.getAccount(connection, uuid);
+            ProfileSkills profile = ProfileSkillsDAO.getAccount(connection, uuid);
+
+            if (add) {
+                return profiles.put(uuid, profile);
+            } else {
+                return profile;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -34,7 +40,7 @@ public class ProfileManager {
     public void save(UUID uuid, boolean delete) {
         if (profiles.containsKey(uuid)) {
             try (Connection connection = BaseDatabase.getInstance().getConnection()) {
-                ProfileSkillsDAO.setBalance(connection, uuid, profiles.get(uuid));
+                ProfileSkillsDAO.setData(connection, uuid, profiles.get(uuid));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
