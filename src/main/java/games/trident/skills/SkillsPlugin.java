@@ -1,5 +1,6 @@
 package games.trident.skills;
 
+import games.trident.skills.command.SkillsCommand;
 import games.trident.skills.listeners.MiningListeners;
 import games.trident.skills.managers.ConfManager;
 import games.trident.skills.managers.ProfileManager;
@@ -21,6 +22,7 @@ public class SkillsPlugin extends JavaPlugin {
         this.profileManager = new ProfileManager();
 
         new MiningListeners(this);
+        new SkillsCommand(this);
 
         API = this;
     }
