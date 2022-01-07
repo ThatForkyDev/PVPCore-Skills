@@ -1,6 +1,5 @@
 package games.trident.skills.conf.configurable.levelup;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.ConfigurationSection;
