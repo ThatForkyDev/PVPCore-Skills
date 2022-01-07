@@ -9,6 +9,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.HashMap;
 
+//tridentg_development
+//tridentg_admin
+//Thisisanadminpassword!
 public class ConfMining extends ConfSkill {
     @Getter private HashMap<Material, ConfigurableExperience> experience = Maps.newHashMap();
 

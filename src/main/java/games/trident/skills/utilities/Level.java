@@ -1,21 +1,51 @@
 package games.trident.skills.utilities;
 
-public interface Level {
-    int getLevel();
+import games.trident.skills.type.mining.MiningLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-    int getPreviousLevel();
+@AllArgsConstructor
+@NoArgsConstructor
+public class Level {
+    @Getter public int level;
+    @Getter public double experience;
+    @Getter public transient float abnormality = 5;
+    @Getter public transient float decider = 1500;
 
-    int getNextLevel();
+    public int getPreviousLevel() {
+        return level - 1 <= 0 ? 1 : level - 1;
+    }
 
-    double getExp();
+    public int getNextLevel() {
+        return level + 1;
+    }
 
-    boolean addExp(double exp);
+    public boolean addExp(double exp) {
+        this.experience += exp;
 
-    void addLevels(int levels);
+        if (this.experience >= getRequiredExp()) {
+            this.level += 1;
+            return true;
+        }
 
-    void setLevel(int level);
+        return false;
+    }
 
-    double getRequiredExp();
+    public void addLevels(int levels) {
+        this.level += levels;
+    }
 
-    double getPreviousRequiredExp();
+    public void setLevel(int level) {
+        this.level = level;
+        this.experience = getPreviousRequiredExp();
+    }
+
+    public double getRequiredExp() {
+        return Math.round(decider * ((getLevel() * getPreviousLevel()) + abnormality / decider));
+    }
+
+    public double getPreviousRequiredExp() {
+        return new MiningLevel(getPreviousLevel(), 0).getRequiredExp();
+    }
 }

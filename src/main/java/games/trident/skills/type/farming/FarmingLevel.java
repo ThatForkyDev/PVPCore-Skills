@@ -2,65 +2,10 @@ package games.trident.skills.type.farming;
 
 import games.trident.skills.utilities.Level;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
-public class FarmingLevel implements Level {
-    private int level;
-    private double experience;
-
-    @Override
-    public int getLevel() {
-        return level;
-    }
-
-    @Override
-    public int getPreviousLevel() {
-        return level - 1 <= 0 ? 1 : level - 1;
-    }
-
-    @Override
-    public int getNextLevel() {
-        return level + 1;
-    }
-
-    @Override
-    public double getExp() {
-        if (this.experience < getPreviousRequiredExp())
-            this.experience = getPreviousRequiredExp();
-
-        return this.experience;
-    }
-
-    @Override
-    public boolean addExp(double exp) {
-        this.experience += exp;
-
-        if (this.experience >= getRequiredExp()) {
-            this.level += 1;
-            return true;
-        }
-
-        return false;
-    }
-
-    @Override
-    public void addLevels(int levels) {
-        this.level += levels;
-    }
-
-    @Override
-    public void setLevel(int level) {
-        this.level = level;
-        this.experience = getPreviousRequiredExp();
-    }
-
-    @Override
-    public double getRequiredExp() {
-        return Math.round(7000 * ((getLevel() * getPreviousLevel()) + 0f / 7000));
-    }
-
-    @Override
-    public double getPreviousRequiredExp() {
-        return new FarmingLevel(getPreviousLevel(), 0).getRequiredExp();
+public class FarmingLevel extends Level {
+    public FarmingLevel(int level, double experience) {
+        super(level, experience, 0, 7000);
     }
 }

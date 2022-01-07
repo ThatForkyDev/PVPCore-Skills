@@ -1,7 +1,10 @@
 package games.trident.skills;
 
 import games.trident.skills.command.SkillsCommand;
+import games.trident.skills.database.BaseDatabase;
+import games.trident.skills.listeners.FishingListeners;
 import games.trident.skills.listeners.MiningListeners;
+import games.trident.skills.listeners.ProfileListeners;
 import games.trident.skills.managers.ConfManager;
 import games.trident.skills.managers.ProfileManager;
 import games.trident.skills.utilities.menu.MenuAPI;
@@ -21,9 +24,18 @@ public class SkillsPlugin extends JavaPlugin {
         this.confManager = new ConfManager(this);
         this.profileManager = new ProfileManager();
 
+        new FishingListeners(this);
         new MiningListeners(this);
+        new ProfileListeners(this);
+
         new SkillsCommand(this);
 
+        initialiseSQL();
         API = this;
+    }
+
+    private void initialiseSQL() {
+        BaseDatabase.getInstance().init(confManager.getConfSql());
+        BaseDatabase.createTables(SkillsPlugin.class, "create_tables");
     }
 }

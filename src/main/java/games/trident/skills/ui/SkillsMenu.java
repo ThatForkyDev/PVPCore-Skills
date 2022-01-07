@@ -27,9 +27,9 @@ public class SkillsMenu extends Menu {
                     new Placeholder("%player%", player.getName()),
                     new Placeholder("%level%", Integer.toString(level.getLevel())),
                     new Placeholder("%next_level%", Integer.toString(level.getNextLevel())),
-                    new Placeholder("%exp%", Double.toString(level.getExp())),
+                    new Placeholder("%exp%", Double.toString(level.getExperience())),
                     new Placeholder("%exp_required%", Double.toString(level.getRequiredExp())),
-                    new Placeholder("%progress_bar%", TextUtil.getBar(ChatColor.GREEN.toString(), ChatColor.GRAY.toString(), (float) (level.getExp() - level.getPreviousRequiredExp()), (float) (level.getRequiredExp() - level.getPreviousRequiredExp()), "|", 25)),
+                    new Placeholder("%progress_bar%", TextUtil.getBar(ChatColor.GREEN.toString(), ChatColor.GRAY.toString(), (float) (level.getExperience() - level.getPreviousRequiredExp()), (float) (level.getRequiredExp() - level.getPreviousRequiredExp()), "|", 25)),
             };
 
             addMenuItem(new MenuItem(confMining.getItem().build(placeholders)), confMining.getItem().getSlot());

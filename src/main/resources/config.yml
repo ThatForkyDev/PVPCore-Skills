@@ -1,3 +1,12 @@
+sql:
+  host: 'webserver3.pebblehost.com'
+  port: 3306
+  databaseName: 'tridentg_development'
+  user: 'tridentg_admin'
+  password: 'Thisisanadminpassword!'
+  minIdle: 30
+  maxConnections: 100
+
 mining:
   name: 'Mining'
   item:

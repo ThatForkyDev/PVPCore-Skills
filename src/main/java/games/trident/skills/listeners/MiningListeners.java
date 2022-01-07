@@ -14,6 +14,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
+import java.util.Objects;
+
 public class MiningListeners implements Listener {
     private SkillsPlugin plugin;
 
@@ -32,6 +34,10 @@ public class MiningListeners implements Listener {
 
         Player player = event.getPlayer();
         ProfileSkills profileSkills = plugin.getProfileManager().getProfile(player.getUniqueId());
+
+        if (Objects.isNull(profileSkills))
+            return;
+
         Level entry = profileSkills.getLevableEntry("mining", new MiningLevel(1, 0));
         ConfMining confMining = plugin.getConfManager().getConfMining();
 
@@ -53,8 +59,6 @@ public class MiningListeners implements Listener {
 
             SkillLevelupEvent skillLevelupEvent = new SkillLevelupEvent(player, "mining", entry.getLevel());
             Bukkit.getPluginManager().callEvent(skillLevelupEvent);
-        } else {
-            player.sendMessage(entry.getExp() + " / " + entry.getRequiredExp());
         }
     }
 }
