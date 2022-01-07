@@ -45,7 +45,7 @@ public class MiningLevel implements Level {
 
     @Override
     public double getRequiredExp() {
-        return Math.round(7000 * ((getLevel() * getPreviousLevel()) + 0f / 7000));
+        return Math.round(1500 * ((getLevel() * getPreviousLevel()) + 5f / 1500));
     }
 
     @Override

@@ -14,7 +14,7 @@ public class ConfigurableSound {
 
     public ConfigurableSound(ConfigurationSection section) {
         this.enabled = section.getBoolean("enabled");
-        this.sound = Sound.valueOf(section.getString("sound").toUpperCase());
+        this.sound = Sound.valueOf(section.getString("name").toUpperCase());
         this.pitch = section.getFloat("pitch");
         this.volume = section.getFloat("volume");
     }

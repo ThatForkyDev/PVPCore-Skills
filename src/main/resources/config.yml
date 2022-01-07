@@ -20,7 +20,7 @@ mining:
       stay: 3
     sound:
       enabled: true
-      name: "EXPERIENCE_LEVEL_UP"
+      name: "LEVEL_UP"
       pitch: 1.0
       volume: 1.0
   finalPool:

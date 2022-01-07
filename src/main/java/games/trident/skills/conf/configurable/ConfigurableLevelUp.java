@@ -5,6 +5,7 @@ import games.trident.skills.conf.configurable.levelup.ConfigurableSound;
 import games.trident.skills.conf.configurable.levelup.ConfigurableTitle;
 import lombok.Getter;
 import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.entity.Player;
 
 @Getter
 public class ConfigurableLevelUp {
@@ -16,5 +17,11 @@ public class ConfigurableLevelUp {
         this.message = new ConfigurableMessage(section.getConfigurationSection("message"));
         this.title = new ConfigurableTitle(section.getConfigurationSection("title"));
         this.sound = new ConfigurableSound(section.getConfigurationSection("sound"));
+    }
+
+    public void send(Player player) {
+        message.send(player);
+        title.send(player);
+        sound.send(player);
     }
 }

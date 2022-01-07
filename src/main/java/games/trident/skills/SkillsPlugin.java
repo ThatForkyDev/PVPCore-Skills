@@ -1,5 +1,6 @@
 package games.trident.skills;
 
+import games.trident.skills.listeners.MiningListeners;
 import games.trident.skills.managers.ConfManager;
 import games.trident.skills.managers.ProfileManager;
 import lombok.Getter;
@@ -14,6 +15,9 @@ public class SkillsPlugin extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         this.confManager = new ConfManager(this);
+        this.profileManager = new ProfileManager();
+
+        new MiningListeners(this);
 
         API = this;
     }
