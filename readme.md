@@ -1,3 +1,5 @@
+# Unfinished, client couldn't pay.
+
 # Commands
     /skills - Opens the main GUI.
     /skills reset <player> - Resets a players profile completely.
